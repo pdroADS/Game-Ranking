@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/ranking.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=swords" />
+    <script src="https://kit.fontawesome.com/6558a6f744.js" crossorigin="anonymous"></script>
+    <title>Gerenciador de jogadores</title>
+</head>
+
+<body>
+
+    <div class="Container">
+<!--Painel esquerdo - Criar Jogo-->
+<aside class="Painel-esquerdo">
+
+<div class="Lado-esquerdo">
+  <h2>Adicionar Jogo</h2>
+
+  <div class="Caixa">
+    <div class="Jogo">
+      <span><i class="fa-solid fa-gamepad"></i> Jogo</span>
+      <button class="add-btn">+</button>
+    </div>
+  </div>
+
+  <div class="Caixa">
+ <label class="Nome">Nome do jogo:<input type="text" class="nome_jogo" ></label>
+
+ <div class="tipos-jogo" style="display: none;">
+    <p><strong>Tipo de Jogo:</strong></p>
+    <label><input type="radio" name="tipo" value="Individual"> Individual</label><br>
+    <label><input type="radio" name="tipo" value="Grupo"> Grupo</label><br><br>
+</div>
+
+    <!--Escolha se o jogo for em grupo defiir separação de times manual ou automática-->
+
+  <div class="modo_criacao">
+     <label class="vitorias">Meta de vitórias:<input type="number" class="Meta" ></label>
+
+    <p><strong>Separar Jogador Entre Equipes</strong></p>
+    <label><input type="radio" name="separar" value="Manual"> Manual</label><br>
+    <label><input type="radio" name="separar" value="Automaticamente"> Automaticamente</label>
+  </div>
+
+<!--Separação de jogadores manual -->
+<div class="separador_manual" style="display: none;">
+    <p><strong>Adicionar Time</strong>
+      <button class="small-btn" id="adicionar-time-btn">+</button>
+    </p>
+    <div id="times-container">
+      <!-- Times são adicionados aqui DINAMICAMENTE -->
+    </div>
+
+    <!-- Checkbox FORA do card -->
+    <p><label><input type="checkbox"> Conceder Vantagem a time com menos jogadores ?</label></p>
+    
+    <!-- Botão FORA do card com fundo cinza -->
+    <button class="gerar_jogo_btn">Gerar jogo</button>
+</div>
+
+<!--Acima separador manual de times/grupos-->
+
+<!-- Separação Automática -->
+<div class="separador_automatico" style="display: none;">
+    <p><strong>Adicionando Times e  Jogadores</strong></p>
+    
+    <!-- Campo para nomes dos times -->
+    <div class="time-header">
+        <label class="step-label">Nomes dos Times</label>
+        <textarea class="multi-time-input" placeholder="Digite os nomes dos times separados por vírgula:&#10;Ex: Time A, Time B..."></textarea>
+        <button class="btn-adicionar-times" type="button">Adicionar Times</button>
+        </small>
+    </div>
+
+    <!-- Lista de times adicionados -->
+    <div class="lista-times-container">
+        <h4>Times (<span class="times-count">0</span>)</h4>
+        <ul class="lista-times" id="lista-times-auto"></ul>
+        <p class="lista-times-vazia-msg">Nenhum time adicionado ainda.</p>
+    </div>
+
+    <div class="adicionar-jogadores-section">
+        <label class="step-label">Adicionar Todos os Jogadores</label>
+        <textarea class="multi-jogador-input" placeholder="Digite os nomes separados por vírgula:&#10;Ex: João, Eluiza,..."></textarea>
+        <button class="btn-adicionar-multi" type="button">Adicionar Todos os Jogadores</button>
+
+        <div class="lista-jogadores-container">
+            <h4>Jogadores (<span class="jogadores-count">0</span>)</h4>
+            <ul class="lista-jogadores" id="lista-jogadores-auto"></ul>
+            <p class="lista-vazia-msg">Nenhum jogador adicionado ainda.</p>
+        </div>
+    </div>
+
+    <!-- Checkbox de vantagem -->
+    <p class="vantagem-checkbox">
+        <label><input type="checkbox"> Conceder Vantagem a time com menos jogadores ?</label>
+    </p>
+
+    <!-- Botão para separar automaticamente -->
+    <button class="gerar_jogo_btn" id="separar-jogadores-btn">Separar Jogadores Entre Times</button>
+</div>
+
+<!--Separados Automático acima-->
+
+<!--Individiual base inícial -->
+<div class="individual" style="display: none;">
+    <label class="vitorias">Meta de vitórias:<input type="number" class="Meta"></label>
+    
+    <div class="conteudo-escuro">
+        <p><strong>Adicionar Jogadores</strong></p>
+        
+        <div class="adicionar-jogadores-section">
+            <div class="modo-multi">
+                <textarea class="multi-jogador-input" placeholder="Digite os nomes separados por vírgula:&#10;Ex: João, Maria..."></textarea>
+                <button class="btn-adicionar-multi" type="button">Adicionar</button>
+            </div>
+            
+            <div class="lista-jogadores-container">
+                <h4>Jogadores (<span class="jogadores-count">0</span>)</h4>
+                <ul class="lista-jogadores" id="lista-jogadores-individual"></ul>
+                <p class="lista-vazia-msg">Nenhum jogador adicionado ainda.</p>
+            </div>
+        </div>
+        
+        <button class="gerar_jogo_btn" id="gerar-jogo-individual">Gerar jogo</button>
+    </div>
+</div>
+
+</aside>
+
+
+
+  <!-- Conteúdo principal -->
+
+ <main class="main-content">
+    
+  <!-- Menu superior -->
+  <nav class="top-menu">
+    <button class="tab active">Ranking</button>
+     <button class="tab">Partidas</button>
+    <button class="tab">Jogadores/Times</button>
+  </nav>
+
+  <!-- Botões de geração -->
+  <div class="actions">
+    <button class="action-btn"><i class="fa-solid fa-dice"></i> Gerador de prêmios</button>
+    <button class="action-btn"><span class="material-symbols-outlined">swords</span>Gerador de Vantagens</button>
+  </div>
+
+  <!-- Ranking -->
+<h2><i class="fa-solid fa-trophy"></i> Ranking:</h2>
+<div class="ranking">
+
+  <div class="Container_times">
+    <div class="Times">
+      <img src="/img/loki.jpg" alt="loki">
+      <strong>Time A</strong>
+    </div>
+
+    <div class="Entrada">
+      <input type="number" value="1" min="0" class="classificacao"> 
+      <span>×</span> 
+      <input type="number" value="1" min="0" class="classificacao">
+    </div>
+
+    <div class="posicao">
+      <span class="medalha">🥇</span>
+    </div>
+  </div>
+
+  <div class="Container_times">
+    <div class="Times">
+      <img src="/img/Estrela.jpg" alt="Estrela">
+      <strong>Time C</strong>
+    </div>
+
+    <div class="Entrada">
+      <input type="number" value="1" min="0" class="classificacao"> 
+      <span>×</span> 
+      <input type="number" value="0" min="0" class="classificacao">
+    </div>
+
+    <div class="posicao">
+      <span class="medalha">🥈</span>
+    </div>
+  </div>
+
+  <div class="Container_times">
+    <div class="Times">
+      <img src="/img/Thanos.jpg" alt="Thanos">
+      <strong>Time B</strong>
+    </div>
+
+    <div class="Entrada">
+      <input type="number" value="1" min="0" class="classificacao"> 
+      <span>×</span> 
+      <input type="number" value="0" min="0" class="classificacao">
+    </div>
+
+    <div class="posicao">
+      <span class="medalha">🥉</span>
+    </div>
+  </div>
+  <button class="gerar_partidas-btn">Salvar</button>
+</div>
+
+
+  <!-- Partidas -->
+  <h2><i class="fa-solid fa-chess-knight"></i>Partidas:</h2>
+  <button class="gerar_partidas-btn">Gerar Partidas</button>
+
+  <div class="Container_times">
+    <div class="Times">
+      <img src="/img/loki.jpg" alt="Loki">
+      <span>Time A</span>
+    </div>
+
+      <div class="Placar">
+      <input type="number" value="1" min="0" class="classificacao"> 
+      <span>×</span> 
+      <input type="number" value="0" min="0" class="classificacao">
+     </div>
+
+    <div class="Times">
+      <img src="/img/Thanos.jpg" alt="Thanos">
+      <span>Time B</span>
+    </div>
+  </div>
+
+  <div class="Container_times">
+    <div class="Times">
+      <img src="/img/Thanos.jpg" alt="Thanos">
+      <span>Time B</span>
+    </div>
+
+    <div class="Placar">
+      <input type="number" value="1" min="0" class="classificacao"> 
+      <span>×</span> 
+      <input type="number" value="0" min="0" class="classificacao">
+     </div>
+     
+    <div class="Times">
+      <img src="/img/Estrela.jpg" alt="Estrela">
+      <span>Time C</span>
+    </div>
+  </div>
+
+    <button class="gerar_partidas-btn">Salvar</button>
+
+  </main>
+
+  <!-- Sidebar direita -->
+  <aside class="Painel-direito">
+  
+  <!-- Ícones do topo -->
+  <div class="icons_acima">
+    <button class="btn_icons"><span><i class="fa-solid fa-gear"></i></span></button>
+    <div class="sair">Sair</div>
+  
+  </div>
+
+
+  <!-- Perfil -->
+  <div class="Perfil">
+  <div class="avatar">
+  <div class="avatar_borda"></div>
+  <img src="/img/stranger.jpg" alt="avatar">
+   </div>
+
+    <h3>Nome</h3>
+    <p>@Apelido</p>
+ 
+
+  <!-- Jogos criados -->
+  <div class="games-list">
+    <h4>Jogos Criados</h4>
+    <ul>
+      <li><i class="fa-solid fa-table-tennis-paddle-ball"></i>Ping-Pong</li>
+      <li><i class="fa-solid fa-puzzle-piece"></i> Jogo da velha</li>
+      <li><i class="fa-solid fa-futbol"></i> Quizlet</li>
+    </ul>
+  </div>
+
+</aside>
+
+  </div>
+
+  <div id="notification" class="notification"></div>
+
+
+  <script src="/js/Ranking.js"></script>
+
+</body>
+</html>

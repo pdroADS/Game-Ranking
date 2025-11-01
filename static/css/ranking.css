@@ -1,0 +1,1215 @@
+body{
+    background-color: #444;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    color: #fff;
+}
+
+/*------------------------------
+           Add Jogo
+------------------------------*/
+
+.Container {
+  display: flex;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+.Lado-esquerdo {
+  height: 100vh;
+  position: relative;
+  min-width: 200px;
+  max-width: 250px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+  background: #444;
+  overflow-y: auto;
+  overflow-x: hidden;
+  
+  /* Scrollbar muito discreta */
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    transition: background 0.3s ease;
+  }
+  
+  &::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+  
+  /* Aparece apenas durante o scroll */
+  &:not(:hover)::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+/* Painel direito */
+.Painel-direito {
+  width: 18%;
+  min-width: 160px;
+  max-width: 220px;
+  background:#444;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  transition: transform 0.3s ease;
+}
+
+
+.Lado-esquerdo h2 {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #999;
+  padding-bottom: 5px;
+}
+
+.Caixa {
+  background: #555;
+  border-radius: 8px;
+  padding: 10px;
+  margin: -2px;
+  margin-bottom: 15px;
+  width: 95%;  
+}
+
+.Jogo {
+  display: flex;
+  justify-content: space-between; /* joga o conteúdo pros extremos */
+  align-items: center;          
+  background: #555;           
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.Nome{
+  font-weight: 600;
+}
+
+.nome_jogo{
+   border: none;
+  outline: none;
+  background: #333;    
+  padding: 5px 5px;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #fff;
+
+}
+
+.add-btn, .small-btn {
+  background: #666;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.2s ease;
+}
+
+.add-btn:hover {
+  background: #717070;
+}
+
+/* Quando clica (efeito pressionado) */
+.add-btn:active {
+  transform: translateY(3px); /* desce o botão */
+  box-shadow: 0 1px 0 #000; /* sombra menor */
+  border: 1px solid #000;   /* borda preta */
+}
+
+.Meta{
+  border: none;
+  outline: none;
+  background: #333;    
+  padding: 5px 5px;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #fff;
+}
+
+.vitorias{
+    font-weight: 600;
+}
+
+.acoes{
+  display: flex;
+}
+
+.btn {
+  background: #181818;
+  color: #6d6d6d;
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  background: #535252;
+}
+
+.btn:active {
+  transform: translateY(3px); /* desce o botão */
+  box-shadow: 0 1px 0 #000; /* sombra menor */
+  border: 1px solid #000;   /* borda preta */
+}
+
+
+.add{
+  font-size: 16px;
+  font-weight: 500;
+}
+/*----------------------------
+
+Sepador manual individual  
+
+-----------------------------*/
+/*----------------------------
+  Sepador manual individual  
+-----------------------------*/
+
+/* Estilos para a seção individual */
+
+/* Apenas esta classe adicional é necessária */
+.conteudo-escuro {
+    background: #353535 !important; 
+    border: 1px solid #444 !important; 
+    padding: 15px; 
+    border-radius: 8px; 
+    margin-top: 12px;
+}
+
+.individual  {
+    color: #fff;
+    display: block;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin-top: 12px;
+}
+
+
+/* Conteúdo individual com fundo escuro */
+.individual .conteudo-individual {
+    background: #353535 !important; 
+    border: 1px solid #444 !important; 
+    padding: 15px; 
+    border-radius: 8px; 
+    margin-top: 12px;
+}
+
+.individual .conteudo-individual p strong {
+    color: #fff;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.individual .conteudo-individual .adicionar-jogadores-section {
+    margin-top: 15px;
+}
+
+.individual .conteudo-individual .modo-multi {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.individual .conteudo-individual .multi-jogador-input {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #666;
+    border-radius: 6px;
+    background: #333;
+    color: #fff;
+    font-size: 14px;
+    resize: none;
+    height: 75px;
+    box-sizing: border-box;
+}
+
+.individual .conteudo-individual .multi-jogador-input::placeholder {
+    color: #888;
+}
+
+.individual .conteudo-individual .btn-adicionar-multi {
+    width: 100%;
+    background: #565555; 
+    color: #fff;
+    border: 1px solid #666; 
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.individual .conteudo-individual .btn-adicionar-multi:hover {
+    background-color: #555;
+}
+
+.individual .conteudo-individual .lista-jogadores-container {
+    background: #444 !important;
+    border: 1px solid #666 !important;
+    color: #fff !important;
+    padding: 12px;
+    border-radius: 5px;
+    margin-top: 12px;
+}
+
+.individual .conteudo-individual .lista-jogadores-container h4 {
+    color: #fff !important;
+    font-size: 14px;
+    margin-bottom: 15px;
+    padding-bottom: 7px;
+    border-bottom: 1px solid #555;
+    text-align: center;
+}
+
+.individual .conteudo-individual .jogadores-count {
+    background: #565555;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.individual .conteudo-individual .lista-jogadores {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.individual .conteudo-individual .lista-vazia-msg {
+    font-size: 13px; 
+    color: #bbb; 
+    padding: 5px 0;
+    text-align: center; 
+    margin: 0;
+}
+
+.individual .conteudo-individual .jogador-item {
+    display: flex !important;
+    justify-content: space-between !important; 
+    align-items: center; 
+    padding: 4px 4px!important; 
+    min-height: 25px !important;
+    height: 21px !important;
+    width: 95% !important;
+    margin-bottom: 5px !important;
+    font-size: 12.5px;
+    border-bottom: 1px dotted #444; 
+    overflow: hidden !important; 
+    background: #3a3a3a !important; 
+    border-radius: 4px; 
+}
+
+.individual .conteudo-individual .jogador-nome {
+    color: #e0e0e0 !important; 
+    text-align: center;
+    font-weight: 400;
+    flex-grow: 1;
+    text-align: left; 
+    display: flex;
+    align-items: center; 
+    justify-content: flex-start !important; 
+    height: 10%;
+    padding: 0 8px 0 12px !important; 
+}
+
+.individual .conteudo-individual .jogador-actions {
+    display: flex; 
+    gap: 5px; 
+}
+
+.individual .conteudo-individual .jogador-actions button {
+    background: none;
+    border: none;
+    color: #888;
+    cursor: pointer;
+    padding: 5px;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    gap: 10px;
+}
+
+.individual .conteudo-individual .jogador-actions button:hover {
+    color: #fff;
+}
+
+.individual .conteudo-individual .gerar_jogo_btn {
+    display: block;
+    margin: 25px auto 0 auto !important;
+    background: #e0e0e0 !important;
+    color: #333 !important;
+    border: 2px solid transparent;
+    border-radius: 50px;
+    padding: 12px 24px !important;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2.5px 0 #575656;
+    width: fit-content;
+}
+
+.individual .conteudo-individual .gerar_jogo_btn:hover {
+    background: #c4c3c3 !important;
+}
+
+.individual .conteudo-individual .gerar_jogo_btn:active {
+    transform: translateY(3px);
+    box-shadow: 0 1px 0 #575656;
+}
+
+        
+/*----------------------------
+
+Sepador manual automático 
+
+-----------------------------*/
+
+
+.modo_criacao{
+  display: none;
+}
+
+
+.individual{
+  display: none;
+}
+
+.time {
+    display: block;
+}
+
+/*----------------------------
+
+Separador manual e automático 
+
+-----------------------------*/
+
+
+.modo_criacao, .individual {
+  display: none;
+}
+
+.time {
+    display: block;
+}
+
+/* Containers principais - mesma estilização */
+.separador_manual, .separador_automatico {
+    background: #353535 !important; 
+    border: 1px solid #444 !important; 
+    padding: 15px; 
+    border-radius: 8px; 
+    margin-top: 12px;
+}
+
+.Nome, .modo_criacao, .separador_manual, .separador_automatico, .individual {
+    display: block;
+}
+
+/* Textos e parágrafos */
+.separador_manual > p:last-of-type,
+.separador_automatico > p:last-of-type {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #fff;
+    background: #353535;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #444;
+    font-size: 14px;
+}
+
+.separador_manual p,
+.separador_automatico p {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Containers de times e jogadores */
+#times-container {
+    margin-bottom: 25px;
+}
+
+.time-header-controls { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.time-header {
+    margin-bottom: 25px; 
+    padding-bottom: 15px;
+    border-bottom: 1px solid #444;
+}
+
+.time-card {
+    background: #343434 !important; 
+    border: 1px solid #444 !important;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+/* Listas de times e jogadores - mesma estilização */
+.lista-jogadores-container,
+.lista-times-container {
+    background: #444 !important;
+    border: 1px solid #666 !important;
+    color: #fff !important;
+    padding: 12px;
+    border-radius: 5px;
+    margin-top: 12px;
+    margin-bottom: 15px;
+}
+
+.lista-jogadores-container h4,
+.lista-times-container h4 {
+    color: #fff !important;
+    font-size: 14px;
+    margin-bottom: 15px;
+    padding-bottom: 7px;
+    border-bottom: 1px solid #555;
+    text-align: center;
+}
+
+/* Itens de jogadores e times */
+.jogador-item,
+.time-item {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center;
+    padding: 5px 8px !important;
+    min-height: 30px !important;
+    margin-bottom: 5px !important;
+    font-size: 12px;
+    border-bottom: 1px dotted #555 !important;
+    background: #3a3a3a !important;
+    border-radius: 4px;
+    overflow: hidden !important;
+}
+
+.jogador-nome,
+.time-nome {
+    color: #e0e0e0 !important;
+    font-weight: 400;
+    flex-grow: 1;
+    text-align: left !important;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start !important;
+    height: 100%;
+    padding: 0 8px 0 12px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.time-nome {
+    font-size: 11px !important;
+    padding: 0 5px 0 12px !important;
+}
+
+/* Ações */
+.jogador-actions,
+.time-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 0 !important;
+    flex-shrink: 0 !important;
+}
+
+.jogador-actions button,
+.time-item button {
+    background: none;
+    border: none;
+    color: #a2a2a2;
+    cursor: pointer;
+    padding: 2px !important;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px !important;
+    height: 18px !important;
+    flex-shrink: 0 !important;
+}
+
+.jogador-actions button:hover,
+.time-item button:hover {
+    color: #fff;
+}
+
+.jogador-actions button {
+    width: 30px;
+    height: 30px;
+    gap: 10px;
+}
+
+/* Listas */
+.lista-jogadores,
+.lista-times {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.lista-vazia-msg,
+.lista-times-vazia-msg {
+    font-size: 13px;
+    color: #bbb;
+    padding: 5px 0;
+    text-align: center;
+    margin: 0;
+}
+
+/* Contadores */
+.jogadores-count,
+.times-count {
+    background: #565555;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.times-count {
+    padding: 1px 6px !important;
+    border-radius: 10px;
+    font-size: 10px !important;
+}
+
+/* Inputs */
+.multi-jogador-input,
+.multi-time-input,
+.nome-time-input {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #666;
+    border-radius: 6px;
+    background: #333;
+    color: #fff;
+    margin-bottom: 15px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.multi-jogador-input,
+.multi-time-input {
+    resize: none;
+    height: 75px;
+}
+
+.nome-time-input {
+    border: 1px solid transparent;
+}
+
+.multi-jogador-input::placeholder,
+.multi-time-input::placeholder {
+    color: #888;
+}
+
+/* Botões */
+.btn-adicionar-multi,
+.btn-adicionar-times {
+    margin-bottom: 25px;
+    width: 100%;
+    background: #565555; 
+    color: #fff;
+    border: 1px solid #666; 
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.btn-adicionar-multi:hover,
+.btn-adicionar-times:hover {
+    background-color: #555;
+}
+
+.remove-time-btn {
+    background: #565555;
+    color: #fff;
+    border: 1px solid #666; 
+    padding: 8px 13px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    display: block;
+    width: fit-content;
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.remove-time-btn:hover {
+    background: #555;
+}
+
+.remove-time-btn .fa-trash,
+.remove-time-btn i {
+    color: #ff5555;
+}
+
+/* Switch entre modos */
+.modo-adicao {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.modo-btn {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #666;
+    background: #444;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* Botões de ação principais */
+.gerar_partidas-btn,
+.gerar_jogo_btn {
+    display: block;
+    margin: 25px auto 0 auto !important;
+    background: #e0e0e0 !important;
+    color: #333 !important;
+    border: 2px solid transparent;
+    border-radius: 50px;
+    padding: 12px 24px !important;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2.5px 0 #575656;
+    width: fit-content;
+}
+
+.gerar_partidas-btn {
+    margin: 8px auto 0 auto !important;
+    padding: 10px 12px !important;
+}
+
+.gerar_jogo_btn:hover,
+.gerar_partidas-btn:hover {
+    background: #c4c3c3 !important;
+}
+
+.gerar_jogo_btn:active,
+.gerar_partidas-btn:active {
+    transform: translateY(3px);
+    box-shadow: 0 1px 0 #575656;
+    border: 1px #575656;
+}
+
+/* Labels */
+.step-label {
+    color: #fff !important;
+    font-weight: 500;
+    margin-bottom: 15px !important;
+    display: block;
+}
+
+.nome-time-input {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #666 !important; /* Borda completa igual ao textarea */
+    border-radius: 6px;
+    background: #333 !important;
+    color: #fff;
+    margin-bottom: 15px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.nome-time-input::placeholder {
+    color: #888;
+}
+
+.nome-time-input:focus {
+    border-color: #888 !important;
+    outline: none;
+    background: #3a3a3a !important;
+}
+
+
+/*------------------------------
+      Conteúdo principal     
+------------------------------*/
+
+.main-content {
+  flex: 1; /* ocupa o espaço que sobra */
+  background: #666;
+  padding: 1.2rem;/* usar rem ao invés de vh */
+  color: #fff;
+  overflow-x: hidden; 
+}
+/* Menu superior */
+.top-menu {
+  display: flex;
+  justify-content: center;
+  width: 100%; 
+  height: 8vh ;
+  background: #9b9b9b;
+  border-radius: 6px;
+  margin-bottom: 20px; 
+  
+}
+
+.tab {
+  flex: 1;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Quando o botão for clicado*/
+.tab.active {
+  background: #ffffff;
+  border-radius: 6px;
+}
+
+/* Quando passar o mouse */
+.tab:hover {
+  background: #7d7d7d;
+}
+
+/* Ações */
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  transition: all 0.2s ease;
+}
+
+.action-btn {
+  flex: 1;
+  padding: 5.5px; /* Tamanho de altura do botão gerador de ações */
+  border: none;
+  border-radius: 18px;
+  cursor: pointer;
+}
+
+.action-btn:hover {
+  background: #7d7d7d;
+}
+
+.action-btn:active {
+  transform: translateY(2px); 
+  box-shadow: 0 1px 0 #fdfdfd; 
+  border: 1px solid #ffffff;   
+}
+
+/* Espadas icon */
+.material-symbols-outlined {
+  font-size: 16.3px !important;   
+}
+
+
+
+/*------------------------------
+          Ranking   
+------------------------------*/
+
+/* Ranking */
+
+h2{
+  display: flex;
+  justify-content: center;
+  padding: 12px;
+  font-weight: 700;
+}
+
+
+/* Troféu icon*/
+.fa-trophy{
+margin-right: 8px; 
+}
+
+.ranking {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 20px;
+}
+
+
+.Times {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.Times img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.Entrada {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex: 1;
+  justify-content: center; /* mantém no centro */
+  flex-shrink: 0; /* impede encolher */
+  margin-right:87px;
+}
+
+.classificacao {
+  width: 45px;
+  height: 35px;
+  text-align: center;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+   line-height: 35px; /* garante o número centralizado */
+}
+
+.classificacao:focus {
+  outline: none;
+  box-shadow: 0 0 4px #000;
+}
+
+.posicao {
+  display: flex;
+  align-items: center;
+}
+
+.medalha {
+  font-size: 22px;
+}
+
+.save-btn:hover {
+  background: #c4c3c3;
+}
+
+.save-btn:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #000;
+  border: 1px solid #000;
+}
+
+/* Partidas */
+.main-btn {
+  display: block;
+  margin: 10px auto;
+  padding: 8px 8px;
+  border: none;
+  border-radius: 50px;
+  background: #eee;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.Placar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex: 1;
+  justify-content: center; /* mantém no centro */
+  flex-shrink: 0; /* impede encolher */
+}
+
+.Container_times {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #777;
+  border-radius: 20px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+/*Cheess icon*/
+
+.fa-chess-knight{
+margin-right: 8px; 
+}
+
+
+/*------------------------------
+          Perfil 
+------------------------------*/
+
+
+/* Ícones do topo */
+
+
+.icons_acima {
+  position: relative;
+  display: flex;
+   justify-content: flex-end;
+  width: 100%;
+  font-size: 18px;
+  margin-bottom: 20px;
+  gap: 10px; 
+}
+
+
+.btn_icons {
+  background: transparent;
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.2s ease;
+}
+
+.btn_icons:hover {
+  background: transparent;
+}
+
+/* Quando clica (efeito pressionado) */
+.btn_icons:active {
+  transform: translateY(3px); /* desce o botão */
+}
+
+
+.sair {
+  position: absolute;
+  top: 25px;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 40px;
+  background-color: #3e3e3e;
+  border-radius: 10px;
+  color: #e0e0e0;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  user-select: none; /* evita selecionar o texto ao clicar */
+  border: 1px solid #666;
+  display: none;
+}
+
+.sair:hover {
+  color: #fff;
+  border-color: #fff;
+}
+.sair:active {
+  transform: scale(0.97);
+}
+
+/* Perfil */
+.Perfil {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.avatar_borda {
+  width: 120px;
+  height: 120px;
+  border-radius: 80%;
+  border: 4px solid #999;  /* círculo em volta */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 10px auto;
+}
+
+.avatar_borda img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.Perfil h3 {
+  margin: 5px 0 0 0;
+  font-size: 16px;
+}
+
+.Perfil p {
+  margin: 0;
+  font-size: 12px;
+  color: #ccc;
+}
+
+/*Posição da img*/
+.avatar {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar img {
+  width: 150px;
+  height: 150px;
+  border-radius: 25%; 
+  border: 3.5px solid #fff;
+  
+}
+
+/* Moldura geométrica */
+.avatar_borda {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border: 2.7px solid rgba(255, 255, 255, 0.4);
+  border-radius: 32%; /* aproxima do hexágono */
+  animation: rotate 10s linear infinite;
+  z-index: 1;
+}
+
+/* Criar múltiplas camadas duplicadas */
+.avatar_borda::before,
+.avatar_borda::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border: 2.5px solid rgba(255, 255, 255, 0.2);
+  border-radius: 40%;
+}
+
+.avatar_borda::before {
+  transform: rotate(20deg);
+}
+.avatar_borda::after {
+  transform: rotate(40deg);
+}
+
+/* Animação de rotação */
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Jogos Criados */
+.games-list {
+  width: 100%;
+}
+
+.games-list h4 {
+  border-bottom: 1px solid #aaa;
+  padding-bottom: 10px;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.games-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.games-list li {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  margin: 10px ;
+  gap: 10px;
+  padding: 4px;
+}
+
+
+
+@media (max-width: 992px) {
+  .hamburger {
+    display: block;
+  }
+}
+
+/* Mobile */
+@media (max-width: 992px) {
+  .Lado-esquerdo {
+    position: fixed;       /* fica sobreposto */
+    top: 0;
+    left: 0;
+    height: 100%;
+    transform: translateX(-100%); /* escondido */
+    z-index: 1000;
+  }
+
+  .Painel-direito {
+    position: fixed;       /* sobreposto do lado direito */
+    top: 0;
+    right: 0;
+    height: 100%;
+    transform: translateX(100%);
+  }
+
+  /* Mostra quando abre */
+  .Lado-esquerdo.open {
+    transform: translateX(0);
+  }
+  .Painel-direito.open {
+    transform: translateX(0);
+  }
+
+.main-content {
+  position: relative;
+  z-index: 1;
+}
+
+  /* Nav responsiva */
+  .top-menu {
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+  }
+
+  .tab {
+    width: 100%;
+    padding: 12px;
+    border-radius: 0;
+  }
+}

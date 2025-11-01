@@ -1,0 +1,188 @@
+body {
+    background-color: #0e2350;
+}
+h2 {
+  color: white;
+  font-family: 'Lato', sans-serif;
+}
+/*Container de Login*/
+.container-login{
+    display: flex;
+    flex-direction: column; 
+    align-items: center;    
+    justify-content: center;  
+    min-height: 100vh;
+    /* fundo e tipografia aplicados apenas ao container do login (escopo local) */
+    background-color: #142053;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    color: #fff;
+}
+
+.trofeu{
+    margin-bottom: 20px;
+}
+
+.titulo{
+    color: #90288B;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 150px;
+    margin: 10px 0 30px 0;
+}
+
+/*inputs login e senha*/
+
+.container-inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.input-wrapper {
+    position: relative; 
+    display: flex;
+    align-items: center;
+}
+
+.input-wrapper input {
+    background-color: #FFFF;
+    width: 100vh;
+    max-width: 500px;
+    padding: 15px 30px 15px 60px;
+    margin-bottom: 10px;
+    border: 2px solid #c23cbb;
+    border-radius: 15px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.input-wrapper .icone-usuario {
+    position: absolute;
+    width: 30px;
+    left: 15px; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    pointer-events: none; 
+}
+
+.input-wrapper .icone-cadeado {
+    position: absolute;
+    width: 30px;
+    left: 15px; 
+    bottom: 15%; 
+    transform: translateY(-50%); 
+    pointer-events: none; 
+}
+
+/*Caixa de Seleção Lembre-me*/
+input[type="checkbox"]{
+    display: none;
+}
+
+label {
+    position: relative;
+    cursor: pointer;
+    padding-left: 25px;
+    left: 7%;
+    font-family: Arial, sans-serif;
+    color: #FFFF;
+}
+
+label::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    border: 2px solid #FFFF;
+    border-radius: 4px;
+}
+
+input[type="checkbox"]:checked + label::before{
+    display: none;
+}
+
+/*Botões de Login e Cadastro*/
+.containers-botoes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.botao-login button,
+.botao-cadastro button {
+    background-color: #90288B;
+    color: white; 
+    padding: 15px 30px; 
+    border: none; 
+    border-radius: 20px; 
+    font-size: 16px;
+    cursor: pointer;
+} 
+
+.botao-login a,
+.botao-cadastro a {
+    text-decoration: none; 
+    color: white; 
+    font-family: 'Lato', sans-serif; 
+    font-weight: bold;
+}
+
+/*Lembrar e Esqueceu a Senha*/
+
+.lembrar-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    padding: 10px 0;
+}
+
+
+.lembrar-container label {
+    position: relative;
+    cursor: pointer;
+    padding-left: 25px;
+    left: 0;
+    font-family: Arial, sans-serif;
+    color: #FFFF;
+}
+
+.lembrar-container label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    border: 2px solid #FFFF;
+    border-radius: 4px;
+}
+
+input[type="checkbox"]:checked + label::before {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.lembrar-container .link-esqueceu-a-senha {
+    color: #FFFF;
+    font-family: Arial, sans-serif;
+    position: static
+}    
+
+.containers-botoes {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza horizontalmente */
+    gap: 0px; /* Espaço entre os elementos */
+    margin-top: 20px;
+}
+

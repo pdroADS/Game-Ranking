@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/login.css">
+
+    <title>Login</title>
+</head>
+<body>
+    <div class="container-login">
+        <div class="trofeu">
+            <svg width="187" height="167" viewBox="0 0 187 167" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18.2773 46.9688C18.2773 49.5489 19.4415 52.5812 21.4629 55.5879C23.5214 58.6498 26.603 61.8893 30.7715 64.9102L30.7725 64.9111C35.04 67.9982 39.8388 70.457 44.959 72.2285L49.4639 73.7871L48.1846 69.1953C45.9658 61.2341 44.4376 52.1049 44.1191 41.6738L44.0449 39.25H18.2773V46.9688ZM142.849 41.6738C142.53 52.1049 141.002 61.2341 138.783 69.1953L137.503 73.7871L142.009 72.2285C147.124 70.4587 151.956 68.0009 156.228 64.9111L156.229 64.9102C159.249 62.7215 162.298 59.8913 164.619 56.8643C166.885 53.9096 168.723 50.4205 168.723 46.9688V39.25H142.922L142.849 41.6738ZM80.417 115.992L79.1875 115.27V115.269H79.1865L79.1846 115.268C79.1821 115.266 79.1786 115.264 79.1738 115.261C79.1588 115.252 79.1325 115.236 79.0957 115.213C79.0218 115.167 78.9045 115.094 78.748 114.992C78.4351 114.789 77.9637 114.471 77.3604 114.035C76.1534 113.162 74.4197 111.814 72.3691 109.944C68.2675 106.205 62.9049 100.388 57.9512 92.1299L57.3174 91.0723L56.0938 90.9316L54.9092 90.7861C42.6939 89.1903 31.113 84.7037 21.5625 77.7891L21.5586 77.7871L20.9824 77.3662C8.96463 68.4948 2.5 57.3818 2.5 46.9688V28.7031C2.5 25.7347 4.86581 23.375 7.79199 23.375H44.0557V7.82812C44.0557 4.85974 46.4215 2.5 49.3477 2.5H137.652C140.579 2.5 142.944 4.85974 142.944 7.82812V23.375H179.208C182.134 23.375 184.5 25.7347 184.5 28.7031V46.9688C184.5 57.5447 177.799 68.8469 165.438 77.7891L165.435 77.791C155.611 84.9261 143.591 89.4771 130.907 90.9316L129.683 91.0723L129.049 92.1299C124.095 100.388 118.732 106.205 114.631 109.944C112.58 111.814 110.847 113.162 109.64 114.035C109.036 114.471 108.565 114.789 108.252 114.992C108.096 115.094 107.978 115.167 107.904 115.213C107.868 115.236 107.841 115.252 107.826 115.261C107.82 115.264 107.816 115.267 107.813 115.269H107.812L107.812 115.27L107.814 115.269L106.583 115.992V143.406H124.667C129.926 143.406 134.522 144.956 137.755 147.644C140.941 150.292 142.944 154.153 142.944 159.172V163.086C142.944 163.869 142.3 164.5 141.549 164.5H45.4512C44.7003 164.5 44.0557 163.869 44.0557 163.086V159.172C44.0557 154.153 46.0586 150.292 49.2451 147.644C52.4781 144.956 57.0738 143.406 62.333 143.406H80.417V115.992Z" fill="url(#paint0_linear_1_16)" stroke="white" stroke-width="5"/>
+                    <defs>
+                        <linearGradient id="paint0_linear_1_16" x1="93.5" y1="0" x2="93.5" y2="167" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#36447D"/>
+                            <stop offset="0.514423" stop-color="#90288B"/>
+                            <stop offset="1" stop-color="#36447D"/>
+                        </linearGradient>
+                    </defs>
+            </svg>
+        </div>
+
+        <h1 class="titulo">LOGIN</h1>
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet"/>            
+        
+        <form id="loginForm">
+        <div class="container-inputs">
+            <div class="input-wrapper">
+                <input id="email" type="text" name="email" placeholder="Digite seu email" required={false}>
+                    <img class="icone-usuario" src="/img/usuario.png">
+            </div>
+
+            <div class="input-wrapper">
+                 <input id="senha" type="password" name="senha" placeholder="Digite sua senha" required={false}>
+                <img class="icone-cadeado" src="/img/cadeado.png">
+            </div>
+
+            <div class = "lembrar-container">
+                <input type="checkbox" id = "lembre-me" name="lembre-me"/>
+                <label htmlFor="lembre-me">Lembre-me</label>
+                <a href="/reset.html" class ="link-esqueceu-a-senha">Esqueceu a senha?</a>
+            </div>
+
+<div class="containers-botoes">
+    <div class="botao-login">
+        <button type="submit">Login</button>
+    </div>
+
+    <h2>ou</h2>
+
+    <div class="botao-cadastro">
+        <button type="button" onclick="window.location.href='/cadastro.html'">
+            Ir para página de cadastro
+        </button>
+    </div>
+</div>
+
+
+    </div>
+    </form>
+
+    <script src="/js/login.js"></script>
+
+</body>
+</html>

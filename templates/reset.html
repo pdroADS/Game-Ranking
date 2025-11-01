@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="/css/reset.css">
+    <title>Reset de Senha</title>
+</head>
+<body>
+
+<div class="container-esqsenha">
+    <div class="trofeu">
+        <!-- SVG do troféu (mantido igual) -->
+    </div>
+
+    <h1 class="titulo">RESET DA SENHA</h1>
+
+    <form id="resetForm" class="containers-inputs">
+        <div class="inputs-esqsenha">
+            <input id="email-reset" type="email" name="email" placeholder="Digite seu email" required>
+        </div>
+
+        <div class="inputs-esqsenha">
+            <input id="nova-senha" type="password" name="senha-nova" placeholder="Digite uma nova senha" required>
+        </div>
+
+        <div class="inputs-esqsenha">
+            <input id="confirmar-senha" type="password" name="confirma-senha" placeholder="Digite a senha novamente" required>
+        </div>
+
+        <div class="botao-nova-senha">
+            <button type="submit">Redefinir Senha</button>
+        </div>
+        <h2>ou</h2>
+        <div class="botao-login-esqsenha">
+            <button type="button" onclick="window.location.href='/login.html'">
+                Ir para página de login
+            </button>
+    </form>
+</div>
+
+<script src="/js/reset.js"></script>
+</body>
+</html>

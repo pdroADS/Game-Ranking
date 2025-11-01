@@ -1,0 +1,113 @@
+body {
+    background-color: #0e2350;
+}
+/*Containers de Cadastro*/
+.trofeu {
+    margin-bottom: 20px;
+}
+h2 {
+  color: white;
+  font-family: 'Lato', sans-serif;
+}
+
+.titulo{
+    color: #90288B;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 150px;
+    margin: 10px 0 30px 0;
+}
+
+.container-cadastro{
+    display: flex;
+    flex-direction: column; 
+    align-items: center;    
+    justify-content: center;    
+}
+
+.container-input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.inputs {
+    margin-bottom: 10px;
+}
+
+.inputs input {
+    background-color: #FFFF;
+    width: 100vh;
+    max-width: 500px;
+    padding: 15px 30px 15px 60px;
+    margin-bottom: 10px;
+    border: 2px solid #c23cbb;
+    border-radius: 15px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/*Texto dos Requisitos da Senha*/
+.container-requisitos{
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.requisitos-senha{
+    color: #FFFF;
+    font-family: 'Calibri', sans-serif;
+    font-weight: 15;
+    font-size: 14px;
+}
+
+/*Botão do cadastro*/
+
+.container-botoes {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaço entre os botões */
+}
+
+.botao-cadastro-se button {
+    background-color: #90288B;
+    color: white; 
+    padding: 15px 30px; 
+    border: none; 
+    border-radius: 20px; 
+    font-size: 16px;
+    cursor: pointer;
+} 
+
+.botao-login button {
+    background-color: #90288B;
+    color: white; 
+    padding: 15px 30px; 
+    border: none; 
+    border-radius: 20px; 
+    font-size: 16px;
+    cursor: pointer;
+} 
+
+.botao-cadastro-se a {
+    text-decoration: none; 
+    color: white; 
+    font-family: 'Lato', sans-serif; 
+    font-weight: bold;
+}
+
+.botao-login a {
+    text-decoration: none; 
+    color: white; 
+    font-family: 'Lato', sans-serif; 
+    font-weight: bold;
+}
+
+#registerForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
