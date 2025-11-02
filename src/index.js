@@ -1,6 +1,8 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
+const open = require('open').default;
+ // biblioteca para abrir o navegador automaticamente
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -36,35 +38,40 @@ app.post('/register', (req, res) => {
   }
 
   const users = readUsers();
-  if (users.find(u => u.email === email)) { // verifica se o email já existe
+  if (users.find(u => u.email === email)) {
     return res.status(400).json({ error: 'Email já cadastrado!' });
   }
 
-  users.push({ username, email, password }); // armazena todos os campos
+  users.push({ username, email, password });
   writeUsers(users);
   return res.json({ message: 'Usuário cadastrado com sucesso!' });
 });
 
-
 // login
-// login usando email
 app.post('/login', (req, res) => {
-  const { email, password } = req.body; // receber email
+  const { email, password } = req.body;
   const users = readUsers();
 
   const user = users.find(u => u.email === email && u.password === password);
 
   if (!user) return res.status(401).json({ error: 'Email ou senha inválidos!' });
 
-  return res.json({ message: `Bem-vindo, ${user.username}!` }); // exibe nome do usuário
+  return res.json({ message: `Bem-vindo, ${user.username}!` });
 });
 
-// default routes to open pages
-app.get('/', (req, res) => res.sendFile(path.join(__dirname, '..', 'templates', 'index.html')));
-app.get('/login.html', (req, res) => res.sendFile(path.join(__dirname, '..', 'templates', 'login.html')));
-app.get('/cadastro.html', (req, res) => res.sendFile(path.join(__dirname, '..', 'templates', 'cadastro.html')));
-
-app.listen(PORT, () => console.log(`Servidor rodando em http://localhost:${PORT}`));
+// páginas
+app.get('/', (req, res) => 
+  res.sendFile(path.join(__dirname, '..', 'templates', 'login.html'))
+);
+app.get('/login.html', (req, res) => 
+  res.sendFile(path.join(__dirname, '..', 'templates', 'login.html'))
+);
+app.get('/cadastro.html', (req, res) => 
+  res.sendFile(path.join(__dirname, '..', 'templates', 'cadastro.html'))
+);
+app.get('/ranking.html', (req, res) => 
+  res.sendFile(path.join(__dirname, '..', 'templates', 'ranking.html'))
+);
 
 // reset de senha
 app.post('/reset-password', (req, res) => {
@@ -79,8 +86,14 @@ app.post('/reset-password', (req, res) => {
     return res.status(404).json({ error: 'Email não encontrado!' });
   }
 
-  users[userIndex].password = password; // Atualiza a senha
+  users[userIndex].password = password;
   writeUsers(users);
 
   return res.json({ message: 'Senha redefinida com sucesso!' });
+});
+
+// iniciar servidor
+app.listen(PORT, () => {
+  console.log(`Servidor rodando em http://localhost:${PORT}`);
+  open(`http://localhost:${PORT}`); // abre automaticamente o navegador
 });

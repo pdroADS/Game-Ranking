@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (data.message) {
       alert(data.message);
-      window.location.href = "/index.html"; // redireciona após login
+      window.location.href = "/ranking.html"; // redireciona após login
     } else {
       alert(data.error);
     }
